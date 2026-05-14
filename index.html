@@ -1,0 +1,2540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SEED Leadership Accelerator: Build Leaders for the AI Age</title>
+<meta name="description" content="A 16-week leadership transformation system for HR leaders and CEOs in the Asian market. Built for the AI age. Measured, defensible, and outcome-anchored." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0E0E0C;
+    --ink-2: #1C1C1A;
+    --paper: #F4EFE3;
+    --paper-2: #ECE6D5;
+    --paper-3: #E2DBC6;
+    --gold: #f26a1b;
+    --gold-deep: #C9530E;
+    --rust: #e9541d;
+    --rust-deep: #B5421F;
+    --brand: #e9541d;
+    --moss: #4A5D3A;
+    --ash: #6B6862;
+    --ash-2: #46443F;
+    --line: #C9C3AF;
+    --line-dark: #2C2C28;
+
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Poppins', system-ui, -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Courier New', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    font-weight: 400;
+    overflow-x: hidden;
+    font-feature-settings: "ss01" on, "cv11" on;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Subtle grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+  }
+
+  /* ---- Layout ---- */
+  .wrap { width: min(1240px, 92vw); margin: 0 auto; }
+  .wrap-narrow { width: min(880px, 90vw); margin: 0 auto; }
+
+  section { position: relative; }
+
+  /* ---- Type ---- */
+  .serif { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; }
+  .mono { font-family: var(--mono); }
+  .italic { font-style: italic; }
+  .upper { text-transform: uppercase; letter-spacing: 0.14em; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--ash);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--ash);
+  }
+  .dark .eyebrow { color: var(--paper-2); }
+  .dark .eyebrow::before { background: var(--paper-3); }
+
+  h1, h2, h3, h4 { font-family: var(--serif); font-weight: 380; letter-spacing: -0.02em; line-height: 1.05; font-variation-settings: "SOFT" 0, "WONK" 0; }
+
+  h1 { font-size: clamp(2.6rem, 6.4vw, 5.6rem); font-weight: 360; }
+  h2 { font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1.08; font-weight: 380; }
+  h3 { font-size: clamp(1.35rem, 2.2vw, 1.8rem); line-height: 1.2; font-weight: 420; }
+
+  p { font-size: 1.06rem; line-height: 1.7; color: var(--ash-2); font-weight: 400; }
+  .dark p { color: #C8C2B0; }
+
+  .lead { font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.6; color: var(--ash-2); font-weight: 400; }
+  .dark .lead { color: #D6CFBA; }
+
+  /* ---- Nav ---- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(244, 239, 227, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+  }
+  .brand {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+  .brand .dot { width: 8px; height: 8px; background: var(--brand); border-radius: 50%; display: inline-block; }
+  .brand small {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-left: 6px;
+  }
+  .nav-cta {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px 22px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.25s, transform 0.25s;
+    display: inline-block;
+  }
+  .nav-cta:hover { background: var(--gold-deep); transform: translateY(-1px); }
+  @media (max-width: 640px) {
+    .nav-cta { padding: 11px 16px; font-size: 0.68rem; }
+    .brand small { display: none; }
+  }
+
+  /* ---- Hero ---- */
+  .hero {
+    padding: 100px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  @media (max-width: 980px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 50px; }
+  }
+  .hero h1 {
+    margin-top: 32px;
+  }
+  .hero h1 .accent {
+    font-style: italic;
+    color: var(--rust);
+  }
+  .hero-sub {
+    margin-top: 32px;
+    max-width: 540px;
+  }
+  .hero-cta-row {
+    margin-top: 44px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 22px 34px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover {
+    background: var(--gold-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -10px rgba(14, 14, 12, 0.4);
+  }
+  .btn-primary .arrow {
+    transition: transform 0.3s ease;
+  }
+  .btn-primary:hover .arrow { transform: translateX(4px); }
+
+  .btn-ghost-note {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ash);
+    letter-spacing: 0.08em;
+    max-width: 240px;
+    line-height: 1.5;
+  }
+
+  /* Hero visual placeholder */
+  .hero-visual {
+    aspect-ratio: 4/5;
+    position: relative;
+    background: var(--paper-2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .hero-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 80%, rgba(195, 155, 67, 0.18), transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(181, 66, 31, 0.12), transparent 50%),
+      linear-gradient(135deg, var(--paper-2) 0%, var(--paper-3) 100%);
+  }
+  .hero-visual::after {
+    content: 'HERO VISUAL';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--ash);
+    text-align: center;
+    line-height: 2;
+  }
+  .hv-frame {
+    position: absolute;
+    inset: 20px;
+    border: 1px dashed var(--line);
+    z-index: 1;
+  }
+  .hv-label {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ash);
+    z-index: 2;
+  }
+  .hv-corner {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--ink);
+    z-index: 2;
+  }
+  .hv-corner.tl { top: 12px; left: 12px; border-right: none; border-bottom: none; }
+  .hv-corner.tr { top: 12px; right: 12px; border-left: none; border-bottom: none; }
+  .hv-corner.bl { bottom: 12px; left: 12px; border-right: none; border-top: none; }
+  .hv-corner.br { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+
+  .hero-meta {
+    display: flex;
+    gap: 50px;
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid var(--line);
+  }
+  .hero-meta-item .label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-bottom: 8px;
+  }
+  .hero-meta-item .value {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--ink);
+  }
+
+  /* ---- Logo Bar ---- */
+  .logo-bar {
+    padding: 60px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--paper-2);
+  }
+  .logo-bar-label {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+  }
+  @media (max-width: 900px) {
+    .logo-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .logo-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .logo-slot {
+    aspect-ratio: 16/7;
+    border: 1px dashed var(--line);
+    margin: -1px 0 0 -1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--ash);
+    letter-spacing: 0.16em;
+  }
+
+  /* ---- Dark sections ---- */
+  .dark {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .dark h1, .dark h2, .dark h3, .dark h4 {
+    color: var(--paper);
+  }
+
+  /* ---- Problem Section ---- */
+  .problem {
+    padding: 100px 0;
+  }
+  .problem-head {
+    max-width: 900px;
+    margin-bottom: 80px;
+  }
+  .problem-head h2 {
+    margin-top: 24px;
+    color: var(--paper);
+  }
+  .problem-head h2 .gold { color: var(--gold); font-style: italic; }
+
+  .pull-quote {
+    border-left: 3px solid var(--gold);
+    padding: 30px 0 30px 36px;
+    margin: 70px 0;
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    line-height: 1.25;
+    color: var(--paper);
+    max-width: 900px;
+  }
+  .pull-quote em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .pain-list {
+    list-style: none;
+    margin: 50px 0;
+    max-width: 800px;
+  }
+  .pain-list li {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line-dark);
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .pain-list li:first-child { border-top: 1px solid var(--line-dark); }
+  .pain-list .num {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--gold);
+    padding-top: 4px;
+  }
+  .pain-list .pain-text {
+    font-family: var(--serif);
+    font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+    line-height: 1.4;
+    color: var(--paper);
+  }
+
+  /* Cost of inaction table */
+  .cost-section {
+    padding: 70px 0 0;
+  }
+  .cost-head { margin-bottom: 50px; }
+  .cost-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .cost-table tr {
+    border-bottom: 1px solid var(--line-dark);
+  }
+  .cost-table tr:first-child { border-top: 1px solid var(--line-dark); }
+  .cost-table td {
+    padding: 26px 0;
+    vertical-align: top;
+  }
+  .cost-table td:first-child {
+    font-family: var(--serif);
+    font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+    color: var(--paper);
+    line-height: 1.4;
+    width: 60%;
+    padding-right: 40px;
+  }
+  .cost-table td:last-child {
+    font-family: var(--mono);
+    font-size: clamp(1.05rem, 1.5vw, 1.4rem);
+    color: var(--rust);
+    text-align: right;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  @media (max-width: 640px) {
+    .cost-table td { display: block; width: 100% !important; padding: 6px 0; }
+    .cost-table td:last-child { text-align: left; padding-bottom: 22px; color: var(--gold); }
+    .cost-table tr { padding: 22px 0; display: block; }
+  }
+  .cost-footnote {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ash);
+    letter-spacing: 0.05em;
+    margin-top: 24px;
+    font-style: italic;
+  }
+  .cost-summary {
+    margin-top: 80px;
+    padding: 40px;
+    border: 1px solid var(--gold);
+    background: rgba(195, 155, 67, 0.05);
+  }
+  .cost-summary p {
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    color: var(--paper);
+    line-height: 1.35;
+  }
+
+  /* ---- Why Obsolete Section ---- */
+  .obsolete {
+    padding: 140px 0;
+    background: var(--paper);
+  }
+  .obsolete-head { max-width: 760px; margin-bottom: 80px; }
+  .obsolete-head h2 { margin-top: 24px; }
+
+  .obsolete-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--ink);
+  }
+  @media (max-width: 900px) {
+    .obsolete-grid { grid-template-columns: 1fr; }
+  }
+  .obsolete-item {
+    padding: 50px 36px 50px 0;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .obsolete-item:last-child { border-right: none; }
+  @media (max-width: 900px) {
+    .obsolete-item { border-right: none; padding: 40px 0; }
+  }
+  .obsolete-num {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--rust);
+    letter-spacing: 0.16em;
+    margin-bottom: 24px;
+  }
+  .obsolete-item h3 {
+    margin-bottom: 18px;
+    color: var(--ink);
+  }
+
+  /* ---- Reveal Section (Offer name) ---- */
+  .reveal {
+    padding: 140px 0;
+    background: var(--paper-2);
+    text-align: center;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .reveal .tag {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--rust);
+    margin-bottom: 30px;
+    display: inline-block;
+    padding: 8px 18px;
+    border: 1px solid var(--rust);
+    border-radius: 999px;
+  }
+  .reveal h2 {
+    font-size: clamp(2.6rem, 7vw, 5.6rem);
+    line-height: 0.98;
+    margin-bottom: 32px;
+  }
+  .reveal h2 .em { font-style: italic; color: var(--gold-deep); }
+  .reveal .lead { max-width: 720px; margin: 0 auto; }
+
+  .outcome-grid {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    text-align: left;
+  }
+  @media (max-width: 900px) {
+    .outcome-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 500px) {
+    .outcome-grid { grid-template-columns: 1fr; }
+  }
+  .outcome-card {
+    padding: 28px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .outcome-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+  }
+  .outcome-card .icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 20px;
+    color: var(--gold-deep);
+  }
+  .outcome-card .text {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+
+  /* ---- Value Stack ---- */
+  .stack {
+    padding: 140px 0;
+    background: var(--paper);
+  }
+  .stack-head { max-width: 760px; margin-bottom: 70px; }
+  .stack-head h2 { margin-top: 24px; }
+
+  .stack-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+  }
+  .stack-table tr { border-bottom: 1px solid var(--line); transition: background 0.2s; }
+  .stack-table tr:hover { background: var(--paper-2); }
+  .stack-table tr:last-child { border-bottom: none; }
+  .stack-table td {
+    padding: 30px 16px;
+    vertical-align: top;
+  }
+  .stack-num {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ash);
+    letter-spacing: 0.14em;
+    width: 50px;
+    padding-left: 0 !important;
+  }
+  .stack-name {
+    width: 28%;
+  }
+  .stack-name strong {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.35rem;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .stack-name .badge {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    background: var(--rust);
+    color: var(--paper);
+    padding: 3px 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-left: 6px;
+    vertical-align: middle;
+    border-radius: 3px;
+  }
+  .stack-desc {
+    color: var(--ash-2);
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+  .stack-val {
+    font-family: var(--mono);
+    font-size: 1.05rem;
+    color: var(--ink);
+    text-align: right;
+    white-space: nowrap;
+    padding-right: 0 !important;
+    width: 130px;
+    font-weight: 500;
+  }
+
+  @media (max-width: 720px) {
+    .stack-table td { display: block; padding: 6px 0; width: 100% !important; }
+    .stack-table tr { padding: 24px 0; display: block; }
+    .stack-val { text-align: left; color: var(--gold-deep); padding-top: 10px !important; }
+  }
+
+  .stack-total {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 30px;
+    align-items: end;
+  }
+  @media (max-width: 640px) {
+    .stack-total { grid-template-columns: 1fr; }
+  }
+  .stack-total-label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ash);
+  }
+  .stack-total-value {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1;
+    color: var(--ink);
+  }
+  .stack-total-value .strike {
+    text-decoration: line-through;
+    color: var(--ash);
+    text-decoration-thickness: 2px;
+    margin-right: 18px;
+    font-size: 0.7em;
+  }
+  .stack-price-note {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ash);
+    margin-top: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ---- Who For ---- */
+  .whofor {
+    padding: 130px 0;
+    background: var(--paper-2);
+    border-top: 1px solid var(--line);
+  }
+  .whofor-head { margin-bottom: 70px; max-width: 760px; }
+  .whofor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  @media (max-width: 760px) {
+    .whofor-grid { grid-template-columns: 1fr; }
+  }
+  .whofor-col {
+    padding: 40px;
+  }
+  .whofor-col.yes {
+    background: var(--paper);
+    border: 1px solid var(--moss);
+  }
+  .whofor-col.no {
+    background: var(--ink);
+    color: var(--paper);
+    border: 1px solid var(--rust);
+  }
+  .whofor-col h3 {
+    margin-bottom: 30px;
+    font-family: var(--mono);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.22em;
+    line-height: 1.4;
+  }
+  .whofor-col.yes h3 { color: var(--moss); }
+  .whofor-col.no h3 { color: var(--rust); }
+  .whofor-list {
+    list-style: none;
+  }
+  .whofor-list li {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    line-height: 1.4;
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 14px;
+  }
+  .whofor-col.no .whofor-list li {
+    border-color: var(--line-dark);
+    color: var(--paper);
+  }
+  .whofor-list li:last-child { border-bottom: none; }
+  .whofor-list .mark {
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: 1rem;
+    padding-top: 4px;
+  }
+  .yes .mark { color: var(--moss); }
+  .no .mark { color: var(--rust); }
+  .whofor-foot {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ash);
+    margin-top: 40px;
+    text-align: center;
+    font-style: italic;
+    letter-spacing: 0.04em;
+  }
+
+  /* ---- Proof ---- */
+  .proof {
+    padding: 140px 0;
+    background: var(--paper);
+  }
+  .proof-head { max-width: 760px; margin-bottom: 70px; }
+
+  .proof-logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-bottom: 100px;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  @media (max-width: 680px) {
+    .proof-logos { grid-template-columns: repeat(2, 1fr); }
+  }
+  .proof-logo-slot {
+    aspect-ratio: 5/2;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--ash);
+    letter-spacing: 0.18em;
+  }
+
+  .case-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 100px;
+  }
+  @media (max-width: 900px) {
+    .case-grid { grid-template-columns: 1fr; }
+  }
+  .case-card {
+    padding: 40px;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .case-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--ink);
+  }
+  .case-num {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--rust);
+    letter-spacing: 0.18em;
+    margin-bottom: 20px;
+  }
+  .case-card h3 {
+    margin-bottom: 16px;
+    font-size: 1.4rem;
+  }
+  .case-card p { font-size: 0.95rem; }
+  .case-result {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--gold-deep);
+    letter-spacing: 0.04em;
+  }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  @media (max-width: 760px) {
+    .testi-grid { grid-template-columns: 1fr; }
+  }
+  .testi-card {
+    padding: 50px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+  }
+  .testi-card .quote {
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    line-height: 1.35;
+    color: var(--ink);
+    margin-bottom: 30px;
+  }
+  .testi-card .quote::before {
+    content: '"';
+    font-size: 2.6rem;
+    color: var(--gold);
+    line-height: 0;
+    vertical-align: -0.3em;
+    margin-right: 6px;
+  }
+  .testi-attr {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ash);
+    letter-spacing: 0.1em;
+    line-height: 1.6;
+  }
+  .testi-attr strong {
+    color: var(--ink);
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+    font-size: 0.85rem;
+  }
+
+  /* ---- Risk Reversal ---- */
+  .risk {
+    padding: 140px 0;
+    background: var(--gold);
+    color: var(--ink);
+    text-align: center;
+  }
+  .risk .eyebrow { color: var(--ink); }
+  .risk .eyebrow::before { background: var(--ink); }
+  .risk h2 {
+    margin-top: 24px;
+    margin-bottom: 40px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .risk h2 em { font-style: italic; }
+  .risk .promise {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.55;
+    color: var(--ink-2);
+  }
+  .risk .sign {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-style: italic;
+    margin-top: 40px;
+    color: var(--ink);
+  }
+
+  /* ---- Why Now ---- */
+  .whynow {
+    padding: 140px 0;
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .whynow-head { max-width: 760px; margin-bottom: 80px; }
+  .whynow-head h2 { color: var(--paper); }
+  .whynow-head h2 em { font-style: italic; color: var(--gold); }
+
+  .whynow-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+  }
+  @media (max-width: 900px) {
+    .whynow-grid { grid-template-columns: 1fr; gap: 50px; }
+  }
+  .whynow-item .num {
+    font-family: var(--serif);
+    font-size: 4rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .whynow-item h3 {
+    color: var(--paper);
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+  }
+  .whynow-item p { color: #C8C2B0; }
+
+  .whynow-closer {
+    margin-top: 100px;
+    padding: 50px;
+    border: 1px solid var(--gold);
+    text-align: center;
+  }
+  .whynow-closer p {
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+    color: var(--paper);
+    line-height: 1.4;
+  }
+  .whynow-closer p strong {
+    color: var(--gold);
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  /* ---- FAQ ---- */
+  .faq {
+    padding: 100px 0;
+    background: var(--paper);
+  }
+  .faq-head { margin-bottom: 60px; max-width: 760px; }
+
+  .faq-list { border-top: 1px solid var(--ink); }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+    padding: 0;
+  }
+  .faq-item summary {
+    padding: 30px 0;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-family: var(--serif);
+    font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+    color: var(--ink);
+    transition: color 0.2s;
+  }
+  .faq-item summary:hover { color: var(--gold-deep); }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+  .faq-item[open] .faq-icon { transform: rotate(45deg); }
+  .faq-answer {
+    padding: 0 0 30px;
+    max-width: 760px;
+    color: var(--ash-2);
+    line-height: 1.65;
+  }
+
+  /* ---- Final CTA ---- */
+  .finalcta {
+    padding: 100px 0 80px;
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .paths {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 100px;
+    align-items: stretch;
+  }
+  @media (max-width: 900px) {
+    .paths { grid-template-columns: 1fr; }
+  }
+  .path {
+    padding: 45px;
+    border: 1px solid var(--line-dark);
+  }
+  .path .tag {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+  }
+  .path.one .tag { color: var(--rust); }
+  .path.two .tag { color: var(--gold); }
+  .path h3 {
+    color: var(--paper);
+    font-size: clamp(1.5rem, 2.4vw, 2rem);
+    margin-bottom: 20px;
+  }
+  .path p {
+    color: #BAB4A1;
+    line-height: 1.6;
+  }
+  .path.two { border-color: var(--gold); background: rgba(195, 155, 67, 0.05); }
+
+  .finalcta-box {
+    padding: 70px;
+    background: var(--ink-2);
+    border: 1px solid var(--gold);
+    text-align: center;
+  }
+  @media (max-width: 640px) {
+    .finalcta-box { padding: 40px 24px; }
+  }
+  .finalcta-box h2 {
+    margin-bottom: 30px;
+    color: var(--paper);
+  }
+  .finalcta-list {
+    list-style: none;
+    margin: 30px auto;
+    max-width: 480px;
+    text-align: left;
+  }
+  .finalcta-list li {
+    padding: 12px 0;
+    color: #C8C2B0;
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 12px;
+    font-size: 1rem;
+  }
+  .finalcta-list li::before {
+    content: '→';
+    color: var(--gold);
+    font-family: var(--mono);
+  }
+  .btn-primary.gold {
+    background: var(--gold);
+    color: var(--ink);
+    margin-top: 30px;
+  }
+  .btn-primary.gold:hover {
+    background: var(--paper);
+    box-shadow: 0 14px 30px -10px rgba(195, 155, 67, 0.5);
+  }
+  .finalcta-note {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ash);
+    margin-top: 24px;
+    letter-spacing: 0.04em;
+    font-style: italic;
+  }
+
+  /* ---- Footer ---- */
+  footer {
+    padding: 50px 0 40px;
+    background: var(--ink);
+    color: var(--paper-3);
+    border-top: 1px solid var(--line-dark);
+  }
+  .foot-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .foot-brand {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    color: var(--paper);
+  }
+  .foot-brand small {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--ash);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-left: 8px;
+  }
+  .foot-meta {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ash);
+    letter-spacing: 0.06em;
+    line-height: 1.6;
+  }
+
+  /* ---- Reveal animations ---- */
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .reveal-up.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-up.delay-1 { transition-delay: 0.1s; }
+  .reveal-up.delay-2 { transition-delay: 0.2s; }
+  .reveal-up.delay-3 { transition-delay: 0.3s; }
+
+  /* ---- NEW: Centered Hero ---- */
+  .hero-new { padding: 60px 0 50px; }
+  .hero-centered { text-align: center; max-width: 1100px; margin: 0 auto 50px; }
+  .hero-centered .eyebrow { margin-bottom: 28px; }
+  .hero-centered .eyebrow::before { display: none; }
+  .hero-centered .eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--ash);
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+  .hero-centered h1 {
+    font-size: clamp(2.4rem, 5.4vw, 4.6rem);
+    line-height: 1.02;
+    margin: 0 auto 32px;
+    letter-spacing: -0.025em;
+    max-width: 1000px;
+  }
+  .hero-centered h1 .accent {
+    font-style: italic;
+    color: var(--rust);
+    display: inline-block;
+  }
+  .hero-centered .hero-sub {
+    max-width: 620px;
+    margin: 0 auto;
+    font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  }
+  .hero-centered .hero-sub strong { color: var(--ink); font-weight: 500; }
+
+  .hero-arrow {
+    display: block;
+    margin: 50px auto 0;
+    width: 24px;
+    height: 50px;
+    color: var(--ash);
+    animation: bob 2.6s ease-in-out infinite;
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); opacity: 0.6; }
+    50% { transform: translateY(8px); opacity: 1; }
+  }
+
+  /* ---- Calculator ---- */
+  .calculator {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 50px 56px;
+    margin: 0 auto;
+    border: 1px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+    max-width: 1180px;
+  }
+  .calculator::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  @media (max-width: 720px) {
+    .calculator { padding: 32px 22px; }
+  }
+
+  .calc-header { text-align: center; margin-bottom: 44px; padding-bottom: 32px; border-bottom: 1px solid var(--line-dark); }
+  .calc-header .tag {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--gold);
+    padding: 7px 16px;
+    border: 1px solid var(--gold);
+    border-radius: 999px;
+    display: inline-block;
+    margin-bottom: 22px;
+  }
+  .calc-header h2 {
+    color: var(--paper);
+    margin-bottom: 16px;
+    font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  }
+  .calc-header p {
+    color: var(--paper-3);
+    max-width: 660px;
+    margin: 0 auto;
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+  .calc-header p strong { color: var(--gold); font-weight: 500; }
+
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: 50px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .calc-grid { grid-template-columns: 1fr; gap: 36px; }
+  }
+
+  .calc-inputs-title, .calc-output-title {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--paper-3);
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line-dark);
+    font-weight: 500;
+  }
+
+  .slider-group {
+    margin-bottom: 28px;
+  }
+  .slider-group:last-child { margin-bottom: 0; }
+  .slider-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 14px;
+    gap: 20px;
+  }
+  .slider-name {
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    color: var(--paper);
+    letter-spacing: 0.01em;
+    font-weight: 400;
+  }
+  .slider-value {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 2vw, 1.7rem);
+    color: var(--gold);
+    line-height: 1;
+    white-space: nowrap;
+    transition: color 0.2s;
+    font-weight: 400;
+  }
+  .slider-value.flash { color: var(--paper); }
+
+  input[type="range"] {
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 2px;
+    background: var(--line-dark);
+    border-radius: 2px;
+  }
+  input[type="range"]::-moz-range-track {
+    height: 2px;
+    background: var(--line-dark);
+    border-radius: 2px;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--gold);
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -9px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 0 0 rgba(242, 106, 27, 0.5);
+  }
+  input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 8px rgba(242, 106, 27, 0.15);
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--gold);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s;
+  }
+  input[type="range"]::-moz-range-thumb:hover { transform: scale(1.2); }
+
+  .slider-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--paper-3);
+    letter-spacing: 0.06em;
+    font-weight: 400;
+  }
+
+  .calc-result-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--brand);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .calc-big-number {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(3rem, 6.5vw, 5.2rem);
+    color: var(--brand);
+    line-height: 1;
+    margin-bottom: 12px;
+    letter-spacing: -0.03em;
+    font-weight: 400;
+  }
+  .calc-big-sub {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--paper-3);
+    letter-spacing: 0.04em;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .calc-breakdown {
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line-dark);
+  }
+  .calc-breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line-dark);
+    gap: 16px;
+  }
+  .calc-breakdown-row:last-child { border-bottom: none; }
+  .calc-breakdown-label {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: var(--paper);
+    line-height: 1.4;
+    font-weight: 400;
+  }
+  .calc-breakdown-value {
+    font-family: var(--mono);
+    font-size: 0.98rem;
+    color: var(--gold);
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  .calc-compare {
+    margin-top: 28px;
+    padding: 22px 24px;
+    background: rgba(242, 106, 27, 0.08);
+    border-left: 3px solid var(--gold);
+  }
+  .calc-compare-text {
+    font-family: var(--serif);
+    font-size: clamp(1rem, 1.3vw, 1.15rem);
+    line-height: 1.5;
+    color: var(--paper);
+  }
+  .calc-compare-text strong {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .calc-foot {
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line-dark);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+  }
+  .calc-sources {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    color: var(--paper-3);
+    line-height: 1.7;
+    max-width: 540px;
+  }
+  .calc-sources strong { color: var(--paper); font-weight: 500; }
+  .calc-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--gold);
+    color: var(--ink);
+    padding: 16px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: all 0.3s;
+    white-space: nowrap;
+  }
+  .calc-cta:hover { background: var(--paper); transform: translateY(-2px); }
+
+  /* ---- Hide old hero styles ---- */
+  .hero { padding: 70px 0 50px; }
+  .hero-grid { display: none; }
+
+  /* ---- Image Placeholders ---- */
+  .image-slot {
+    position: relative;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0;
+  }
+  .image-slot::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 25% 25%, rgba(233, 84, 29, 0.08), transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(195, 155, 67, 0.08), transparent 50%);
+    z-index: 0;
+  }
+  .image-slot::after {
+    content: '';
+    position: absolute;
+    inset: 18px;
+    border: 1px dashed var(--line);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .image-slot .img-corner {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid var(--brand);
+    z-index: 3;
+  }
+  .image-slot .img-corner.tl { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+  .image-slot .img-corner.tr { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+  .image-slot .img-corner.bl { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+  .image-slot .img-corner.br { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+  .image-slot .img-label {
+    position: relative;
+    z-index: 2;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ash);
+    text-align: center;
+    line-height: 1.8;
+    padding: 24px 36px;
+  }
+  .image-slot .img-label .desc {
+    display: block;
+    color: var(--ash);
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0.04em;
+    margin-top: 6px;
+    font-size: 0.7rem;
+  }
+  .image-slot .img-tag {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+
+  /* Dark variant for dark sections */
+  .image-slot.dark {
+    background: var(--ink-2);
+    border-color: var(--line-dark);
+  }
+  .image-slot.dark::after {
+    border-color: var(--line-dark);
+  }
+  .image-slot.dark .img-label { color: var(--paper-3); }
+  .image-slot.dark .img-label .desc { color: var(--ash); }
+  .image-slot.dark .img-tag { background: var(--brand); color: var(--paper); }
+
+  /* Aspect ratios */
+  .image-slot.cinematic { aspect-ratio: 21/9; }
+  .image-slot.wide { aspect-ratio: 16/7; }
+  .image-slot.landscape { aspect-ratio: 4/3; }
+  .image-slot.portrait { aspect-ratio: 3/4; }
+  .image-slot.square { aspect-ratio: 1/1; }
+  .image-slot.tall { aspect-ratio: 4/5; }
+
+  /* ---- Experts Section ---- */
+  .experts {
+    padding: 130px 0;
+    background: var(--paper-2);
+    border-top: 1px solid var(--line);
+  }
+  .experts-head { max-width: 760px; margin-bottom: 70px; }
+  .experts-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 980px) {
+    .experts-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .experts-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .expert-card {
+    transition: transform 0.3s ease;
+  }
+  .expert-card:hover { transform: translateY(-4px); }
+  .expert-card .image-slot { margin-bottom: 16px; }
+  .expert-card .name {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .expert-card .role {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ash);
+    line-height: 1.5;
+  }
+  .experts-foot {
+    margin-top: 50px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--ash);
+    font-style: italic;
+  }
+
+  /* ---- Why-Now: with side image ---- */
+  .whynow-split {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 70px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .whynow-split { grid-template-columns: 1fr; gap: 50px; }
+  }
+  .whynow-image .image-slot {
+    position: sticky;
+    top: 100px;
+  }
+
+  /* Editorial image break (used in problem section) */
+  .editorial-break {
+    margin: 80px 0;
+  }
+  .editorial-break .image-slot {
+    border-color: var(--line-dark);
+  }
+
+  /* ---- Inline CTA (used throughout) ---- */
+  .inline-cta {
+    margin-top: 50px;
+    padding-top: 36px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 26px;
+  }
+  .dark .inline-cta { border-color: var(--line-dark); }
+  .inline-cta-text {
+    font-family: var(--serif);
+    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.4;
+    flex: 1;
+    min-width: 260px;
+  }
+  .dark .inline-cta-text { color: var(--paper); }
+  .btn-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--brand);
+    color: var(--paper);
+    padding: 16px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-family: var(--sans);
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  .btn-inline:hover {
+    background: var(--ink);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px -8px rgba(233, 84, 29, 0.4);
+  }
+  .btn-inline .arr {
+    transition: transform 0.3s;
+    font-size: 1.05rem;
+  }
+  .btn-inline:hover .arr { transform: translateX(3px); }
+
+  /* ---- Our Approach (4-step) ---- */
+  .approach {
+    padding: 100px 0;
+    background: var(--paper);
+  }
+  .approach-head { max-width: 760px; margin-bottom: 70px; }
+  .approach-head h2 em { font-style: italic; color: var(--brand); }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    counter-reset: step;
+  }
+  @media (max-width: 900px) {
+    .approach-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 540px) {
+    .approach-grid { grid-template-columns: 1fr; }
+  }
+  .approach-step {
+    padding: 36px 32px 36px 0;
+    border-top: 2px solid var(--ink);
+    position: relative;
+  }
+  .approach-step + .approach-step {
+    border-left: 1px solid var(--line);
+    padding-left: 32px;
+  }
+  @media (max-width: 900px) {
+    .approach-step:nth-child(3) { border-left: none; padding-left: 0; }
+  }
+  @media (max-width: 540px) {
+    .approach-step + .approach-step { border-left: none; padding-left: 0; }
+  }
+  .approach-num {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--brand);
+    letter-spacing: 0.18em;
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+  .approach-step h3 {
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+  .approach-step p { font-size: 0.98rem; line-height: 1.6; }
+
+  /* ---- After Picture (Dream Outcome) ---- */
+  .after {
+    padding: 120px 0;
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+  }
+  .after-head { max-width: 760px; margin-bottom: 60px; }
+  .after-head h2 em { font-style: italic; color: var(--brand); }
+  .after-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) {
+    .after-grid { grid-template-columns: 1fr; }
+  }
+  .after-card {
+    padding: 32px 28px;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .after-card:hover { transform: translateY(-4px); border-color: var(--brand); }
+  .after-card .when {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--brand);
+    letter-spacing: 0.18em;
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .after-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    line-height: 1.25;
+  }
+  .after-card p { font-size: 0.95rem; line-height: 1.55; }
+
+  /* ---- Proof Stories ---- */
+  .proof-stories {
+    padding: 100px 0;
+    background: var(--paper-2);
+    border-top: 1px solid var(--line);
+  }
+  .proof-stories-head { max-width: 760px; margin-bottom: 70px; }
+  .proof-stories-head h2 em { font-style: italic; color: var(--brand); }
+
+  .proof-clients-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-bottom: 60px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 720px) {
+    .proof-clients-bar { grid-template-columns: 1fr; }
+  }
+  .proof-client {
+    padding: 30px 16px;
+    text-align: center;
+    border-right: 1px solid var(--line);
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--ink);
+    transition: background 0.2s;
+  }
+  .proof-client:hover { background: var(--paper); }
+  .proof-client:last-child { border-right: none; }
+  .proof-client small {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--ash);
+    letter-spacing: 0.14em;
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  @media (max-width: 760px) {
+    .story-grid { grid-template-columns: 1fr; }
+  }
+  .story-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 0;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .story-card:hover { border-color: var(--ink); transform: translateY(-3px); }
+  .story-card .story-image {
+    aspect-ratio: 16/9;
+  }
+  .story-card .story-body {
+    padding: 36px;
+  }
+  .story-tag {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--brand);
+    letter-spacing: 0.18em;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .story-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+  .story-row {
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .story-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .story-row-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ash);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .story-row-text {
+    font-size: 0.97rem;
+    line-height: 1.55;
+    color: var(--ash-2);
+  }
+  .story-row.outcome .story-row-label { color: var(--brand); }
+  .story-row.outcome .story-row-text {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--ink);
+    line-height: 1.35;
+    font-style: italic;
+  }
+
+  /* Featured story takes full width */
+  .story-card.featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+  @media (max-width: 760px) {
+    .story-card.featured { grid-template-columns: 1fr; }
+  }
+  .story-card.featured .story-image { aspect-ratio: auto; height: 100%; min-height: 320px; }
+  .story-card.featured .story-body { padding: 50px; }
+
+  /* ---- Guarantee + Scarcity Strip ---- */
+  .guarantee-strip {
+    padding: 60px 0;
+    background: var(--ink);
+    color: var(--paper);
+    border-top: 1px solid var(--line-dark);
+  }
+  .guarantee-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  @media (max-width: 760px) {
+    .guarantee-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  .guarantee-block .label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .guarantee-block .label::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--brand);
+    border-radius: 50%;
+  }
+  .guarantee-block .text {
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    line-height: 1.35;
+    color: var(--paper);
+    font-style: italic;
+  }
+  .guarantee-block .text strong {
+    color: var(--gold);
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  /* ---- Bonus Stack in Final CTA ---- */
+  .bonus-stack {
+    margin: 30px auto 30px;
+    max-width: 520px;
+    padding: 24px 26px;
+    background: rgba(242, 106, 27, 0.08);
+    border: 1px dashed var(--gold);
+    border-radius: 4px;
+    text-align: left;
+  }
+  .bonus-tag {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .bonus-stack p {
+    font-size: 0.98rem;
+    color: var(--paper-3);
+    line-height: 1.55;
+  }
+  .bonus-stack p strong {
+    color: var(--paper);
+    font-weight: 500;
+  }
+
+  /* ---- Selection ---- */
+  ::selection { background: var(--gold); color: var(--ink); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap nav-inner">
+    <div class="brand">
+      <span class="dot"></span>
+      SEED Academy
+      <small>· Leadership Accelerator</small>
+    </div>
+    <a href="#cta" class="nav-cta">Discovery Call</a>
+  </div>
+</nav>
+
+<!-- HERO (centered + calculator) -->
+<section class="hero hero-new">
+  <div class="wrap">
+
+    <!-- Centered headline -->
+    <div class="hero-centered">
+      <span class="eyebrow reveal-up">For HR Directors · CEOs · Heads of Talent · Asia</span>
+      <h1 class="reveal-up delay-1">
+        We turn leadership gaps<br>into your <span class="accent">competitive edge.</span>
+      </h1>
+      <p class="lead hero-sub reveal-up delay-2">
+        Or we'll tell you we can't, on the first call. No pitch deck. No fluff. <strong>See where your leaders need the most support, in 30 seconds.</strong>
+      </p>
+      <svg class="hero-arrow reveal-up delay-3" viewBox="0 0 24 50" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 0v44M4 36l8 8 8-8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- Interactive Calculator -->
+    <div class="calculator reveal-up delay-2" id="calculator">
+
+      <div class="calc-header">
+        <span class="tag">The Leadership Capacity Calculator</span>
+        <h2 class="serif">The hidden cost of capability gaps in this AI moment.</h2>
+        <p>
+          Gallup research: managers drive <strong>at least 70%</strong> of the variance in team engagement. <strong>50% of voluntary exits</strong> trace back to the manager relationship. Teams without strong support are <strong>~18% less productive</strong>. Here's what that adds up to in your organisation.
+        </p>
+      </div>
+
+      <div class="calc-grid">
+
+        <!-- INPUTS -->
+        <div class="calc-inputs">
+          <div class="calc-inputs-title">// Your Organisation</div>
+
+          <div class="slider-group">
+            <div class="slider-label">
+              <span class="slider-name">Number of leaders &amp; managers</span>
+              <span class="slider-value" id="leaders-val">25</span>
+            </div>
+            <input type="range" id="leaders" min="5" max="200" value="25" step="1" aria-label="Number of leaders">
+            <div class="slider-meta"><span>5</span><span>200</span></div>
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-label">
+              <span class="slider-name">Avg leader salary (USD / year)</span>
+              <span class="slider-value" id="salary-val">$80,000</span>
+            </div>
+            <input type="range" id="salary" min="30000" max="200000" value="80000" step="5000" aria-label="Average leader salary">
+            <div class="slider-meta"><span>$30k</span><span>$200k</span></div>
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-label">
+              <span class="slider-name">Avg team size per leader</span>
+              <span class="slider-value" id="team-val">7</span>
+            </div>
+            <input type="range" id="team" min="3" max="15" value="7" step="1" aria-label="Average team size">
+            <div class="slider-meta"><span>3</span><span>15</span></div>
+          </div>
+        </div>
+
+        <!-- OUTPUT -->
+        <div class="calc-output">
+          <div class="calc-output-title">// The Opportunity</div>
+
+          <div class="calc-result-label">Untapped leadership capacity / year</div>
+          <div class="calc-big-number" id="waste-num">$0</div>
+          <div class="calc-big-sub">// Conservative. Most clients find the real number is 2&ndash;3× higher.</div>
+
+          <div class="calc-breakdown">
+            <div class="calc-breakdown-row">
+              <span class="calc-breakdown-label">Productivity lift sitting in your teams</span>
+              <span class="calc-breakdown-value" id="productivity-num">$0</span>
+            </div>
+            <div class="calc-breakdown-row">
+              <span class="calc-breakdown-label">Retention you'd recover with stronger managers</span>
+              <span class="calc-breakdown-value" id="turnover-num">$0</span>
+            </div>
+            <div class="calc-breakdown-row">
+              <span class="calc-breakdown-label">For context, your total annual leader payroll</span>
+              <span class="calc-breakdown-value" id="payroll-num">$0</span>
+            </div>
+            <div class="calc-breakdown-row">
+              <span class="calc-breakdown-label">Waste as % of leader payroll</span>
+              <span class="calc-breakdown-value" id="ratio-num">0%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-foot">
+        <div class="calc-sources">
+          <strong>Sources:</strong> Gallup, <em>State of the American Manager</em> · Gallup, <em>State of the Global Workplace 2025</em> ($438B in lost productivity globally) · SHRM, <em>Cost of Replacing Employees</em> · Bamboo HR <em>Boss Effect</em> 2025
+        </div>
+        <a href="#cta" class="calc-cta">
+          Fix This &rarr; Book Discovery Call
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LOGO BAR -->
+<section class="logo-bar">
+  <div class="wrap">
+    <div class="logo-bar-label">
+      <span class="eyebrow">Trusted by</span>
+    </div>
+    <div class="logo-grid">
+      <div class="logo-slot">LOGO 01</div>
+      <div class="logo-slot">LOGO 02</div>
+      <div class="logo-slot">LOGO 03</div>
+      <div class="logo-slot">LOGO 04</div>
+      <div class="logo-slot">LOGO 05</div>
+      <div class="logo-slot">LOGO 06</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem dark">
+  <div class="wrap">
+    <div class="problem-head">
+      <span class="eyebrow">01 · The Problem</span>
+      <h2>Your AI is moving fast. <span class="gold">Leadership has to move with it.</span></h2>
+    </div>
+
+    <p class="lead" style="max-width:680px;">
+      You can deploy AI in weeks. Leadership doesn't work that way. Your leaders are now expected to:
+    </p>
+
+    <ol class="pain-list">
+      <li><span class="num">01</span><span class="pain-text">Decide faster than the model generates three options.</span></li>
+      <li><span class="num">02</span><span class="pain-text">Hold a team accountable when 70% of the work is AI-generated.</span></li>
+      <li><span class="num">03</span><span class="pain-text">Keep people engaged when their job description changes every six months.</span></li>
+    </ol>
+
+    <!-- IMAGE BREAK -->
+    <div class="editorial-break">
+      <div class="image-slot cinematic dark">
+        <span class="img-corner tl"></span>
+        <span class="img-corner tr"></span>
+        <span class="img-corner bl"></span>
+        <span class="img-corner br"></span>
+        <div class="img-label">
+          [ Editorial image · 21:9 ]
+          <span class="desc">A leader in an AI-age moment</span>
+        </div>
+        <div class="img-tag">DROP IMAGE HERE</div>
+      </div>
+    </div>
+
+    <div class="inline-cta" style="border-color:var(--line-dark);">
+      <div class="inline-cta-text" style="color:var(--paper);">Give your leaders what they need to thrive in this moment.</div>
+      <a href="#cta" class="btn-inline">Book Discovery Call <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- OUR APPROACH -->
+<section class="approach">
+  <div class="wrap">
+    <div class="approach-head">
+      <span class="eyebrow">02 · How we work</span>
+      <h2>Four steps. <em>Designed with you.</em></h2>
+      <p class="lead" style="margin-top:20px;max-width:600px;">
+        No off-the-shelf programmes. No generic frameworks. We build the training around your business, with you, and the right experts.
+      </p>
+    </div>
+
+    <div class="approach-grid">
+      <div class="approach-step">
+        <div class="approach-num">STEP 01</div>
+        <h3>Discovery call.</h3>
+        <p>We get on a call. You walk us through the business, the leaders, and what's not working.</p>
+      </div>
+      <div class="approach-step">
+        <div class="approach-num">STEP 02</div>
+        <h3>Diagnose.</h3>
+        <p>We pinpoint where the real capability gap is, not where it appears to be on the surface.</p>
+      </div>
+      <div class="approach-step">
+        <div class="approach-num">STEP 03</div>
+        <h3>Match the experts.</h3>
+        <p>We pair you with senior practitioners from our bench who have solved this problem before in real businesses.</p>
+      </div>
+      <div class="approach-step">
+        <div class="approach-num">STEP 04</div>
+        <h3>Co-design &amp; deliver.</h3>
+        <p>You, us, and the experts shape the training together, built for your context, your leaders, your outcomes.</p>
+      </div>
+    </div>
+
+    <div class="inline-cta">
+      <div class="inline-cta-text">Step 01 takes 30 minutes. No pitch deck. No fluff.</div>
+      <a href="#cta" class="btn-inline">Book Discovery Call <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF STORIES -->
+<section class="proof-stories">
+  <div class="wrap">
+    <div class="proof-stories-head">
+      <span class="eyebrow">03 · Receipts</span>
+      <h2>Work that actually <em>changed how teams perform.</em></h2>
+      <p class="lead" style="margin-top:20px;max-width:680px;">
+        A selection of engagements delivered across Asia. Real challenges. Real interventions. Real outcomes.
+      </p>
+    </div>
+
+    <!-- Client name bar -->
+    <div class="proof-clients-bar">
+      <div class="proof-client">Prudential<small>Singapore</small></div>
+      <div class="proof-client">OCBC<small>Singapore</small></div>
+      <div class="proof-client">Biofarma<small>Indonesia</small></div>
+    </div>
+
+    <!-- Story cards -->
+    <div class="story-grid">
+
+      <!-- Featured: Prudential (most impressive outcome, HR award) -->
+      <div class="story-card featured">
+        <div class="story-image image-slot">
+          <span class="img-corner tl"></span>
+          <span class="img-corner tr"></span>
+          <span class="img-corner bl"></span>
+          <span class="img-corner br"></span>
+          <div class="img-label">[ Prudential image ]<span class="desc">16:9 or full</span></div>
+          <div class="img-tag">DROP IMAGE HERE</div>
+        </div>
+        <div class="story-body">
+          <div class="story-tag">CASE 01 · PRUDENTIAL · SINGAPORE</div>
+          <h3>Repositioning an insurance giant as a wellness-led employer.</h3>
+          <div class="story-row">
+            <div class="story-row-label">Challenge</div>
+            <div class="story-row-text">Prudential needed to reposition its employer brand from a traditional insurer to a wellness-led organisation, to attract and engage top talent.</div>
+          </div>
+          <div class="story-row">
+            <div class="story-row-label">What we did</div>
+            <div class="story-row-text">Designed and delivered the EVP Advocates Programme: social and personal branding training, 1:1 coaching, and a three-month LinkedIn activation challenge to build confident internal advocates.</div>
+          </div>
+          <div class="story-row outcome">
+            <div class="story-row-label">Outcome</div>
+            <div class="story-row-text">Won the HR Award for Best Talent Acquisition Strategy that year. Strong internal and external momentum, stronger employer brand visibility.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OCBC -->
+      <div class="story-card">
+        <div class="story-image image-slot">
+          <span class="img-corner tl"></span>
+          <span class="img-corner tr"></span>
+          <span class="img-corner bl"></span>
+          <span class="img-corner br"></span>
+          <div class="img-label">[ OCBC image ]<span class="desc">16:9</span></div>
+          <div class="img-tag">DROP IMAGE HERE</div>
+        </div>
+        <div class="story-body">
+          <div class="story-tag">CASE 02 · OCBC · SINGAPORE</div>
+          <h3>Building leadership presence for high-potentials.</h3>
+          <div class="story-row">
+            <div class="story-row-label">Challenge</div>
+            <div class="story-row-text">High-potential leaders needed stronger storytelling, leadership presence, and influence to lead effectively in complex, people-driven environments.</div>
+          </div>
+          <div class="story-row">
+            <div class="story-row-label">What we did</div>
+            <div class="story-row-text">Designed an exclusive social mentoring experience pairing SEED Academy and OCBC expert mentors for peer-to-peer learning and real-world influence development.</div>
+          </div>
+          <div class="story-row outcome">
+            <div class="story-row-label">Outcome</div>
+            <div class="story-row-text">Participants communicated with greater clarity and confidence, and expanded their influence across teams and functions.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Biofarma -->
+      <div class="story-card">
+        <div class="story-image image-slot">
+          <span class="img-corner tl"></span>
+          <span class="img-corner tr"></span>
+          <span class="img-corner bl"></span>
+          <span class="img-corner br"></span>
+          <div class="img-label">[ Biofarma image ]<span class="desc">16:9</span></div>
+          <div class="img-tag">DROP IMAGE HERE</div>
+        </div>
+        <div class="story-body">
+          <div class="story-tag">CASE 03 · BIOFARMA · INDONESIA</div>
+          <h3>Stronger strategic judgment for innovation-led growth.</h3>
+          <div class="story-row">
+            <div class="story-row-label">Challenge</div>
+            <div class="story-row-text">Leaders needed stronger strategic judgment, execution discipline, and cross-functional alignment to support innovation and revenue growth.</div>
+          </div>
+          <div class="story-row">
+            <div class="story-row-label">What we did</div>
+            <div class="story-row-text">Designed and delivered a multi-phase executive learning and mentoring programme focused on real operational and commercial challenges.</div>
+          </div>
+          <div class="story-row outcome">
+            <div class="story-row-label">Outcome</div>
+            <div class="story-row-text">Improved leadership execution, stronger cross-team collaboration, and clearer alignment between strategy, innovation, and business results.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="inline-cta">
+      <div class="inline-cta-text">Want results like these for your leaders? Let's talk.</div>
+      <a href="#cta" class="btn-inline">Book Discovery Call <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="faq-head">
+      <span class="eyebrow">04 · Common Questions</span>
+      <h2>The questions we hear most.</h2>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How is this different from training we've done before?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="faq-answer">It's not off-the-shelf. We diagnose first, then co-design with you and the right expert. Every programme is built for your business, not retrofitted from someone else's.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How do you pick the experts?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="faq-answer">From our bench of senior operators, former CHROs, CEOs, business heads. We match based on your industry, your problem, and the leaders in the room. You approve before we start.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What does the discovery call involve?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+        </summary>
+        <div class="faq-answer">30 minutes. You walk us through your business and what's not working. We share whether we think we can help, and if so, what we'd diagnose next. No pitch deck.</div>
+      </details>
+    </div>
+
+    <div class="inline-cta">
+      <div class="inline-cta-text">Still have questions? Let's just talk.</div>
+      <a href="#cta" class="btn-inline">Book Discovery Call <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE + SCARCITY STRIP -->
+<section class="guarantee-strip">
+  <div class="wrap">
+    <div class="guarantee-grid">
+      <div class="guarantee-block">
+        <div class="label">Our Promise</div>
+        <p class="text">If we don't think we can move the needle on your leadership, <strong>we'll tell you on the first call.</strong> And we'll refer you to someone who can. Free.</p>
+      </div>
+      <div class="guarantee-block">
+        <div class="label">Capacity</div>
+        <p class="text">We take on <strong>4 new clients per quarter.</strong> Q-end is when most CHROs lock in their L&amp;D plan. Don't wait.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="cta" class="finalcta">
+  <div class="wrap">
+    <div style="margin-bottom:70px;text-align:center;">
+      <span class="eyebrow">05 · Two Paths From Here</span>
+    </div>
+
+    <div class="paths">
+      <div class="path one">
+        <div class="tag">PATH 01 · Do Nothing</div>
+        <h3 class="serif">Watch the cost compound.</h3>
+        <p>Every quarter the gap widens. AI gets faster, expectations get higher, and top performers move toward leaders who can support them. The cost compounds quietly.</p>
+      </div>
+      <div class="path two">
+        <div class="tag">PATH 02 · Do the Work</div>
+        <h3 class="serif">Build leaders who compound.</h3>
+        <p>Diagnose. Co-design. Deliver. Built around your business, your leaders, your outcomes, with the right experts in the room.</p>
+      </div>
+    </div>
+
+    <div class="finalcta-box">
+      <h2>Book Your Discovery Call.</h2>
+      <p style="color:#C8C2B0;font-size:1.05rem;max-width:520px;margin:20px auto 10px;">
+        30 minutes. No pitch deck. No fluff. We listen, you decide.
+      </p>
+
+      <div class="bonus-stack">
+        <div class="bonus-tag">★ Book this week, get this free</div>
+        <p><strong>The Leadership Capability Audit Template</strong>, the same diagnostic instrument we use with paying clients. Yours to keep, even if we don't end up working together.</p>
+      </div>
+
+      <a href="#" class="btn-primary gold">Talk to Our Team <span class="arrow">→</span></a>
+      <p class="finalcta-note">// If we're not the right fit, we'll tell you in the call, and refer you to someone who is.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-inner">
+    <div class="foot-brand">
+      <span style="color:var(--brand);">●</span> SEED Academy
+      <small>· Leadership Accelerator</small>
+    </div>
+    <div class="foot-meta">
+      Powered by Stories of Asia<br>
+      Expert-led training for real business capability across the Asian market
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal-up').forEach(el => io.observe(el));
+
+  // Auto-add reveal class to major elements
+  document.querySelectorAll('section > .wrap > *, section > .wrap-narrow > *').forEach((el, i) => {
+    if (!el.classList.contains('reveal-up')) {
+      el.classList.add('reveal-up');
+      io.observe(el);
+    }
+  });
+
+  // ====== LEADERSHIP CAPACITY CALCULATOR ======
+  // Based on Gallup research:
+  // - Managers account for 70% of variance in team engagement (Gallup, State of the American Manager)
+  // - 50% of employees quit because of their manager (Gallup)
+  // - Disengaged employees are ~18% less productive (Gallup)
+  // - Replacing a manager/professional costs 100-200% of salary (Gallup, SHRM)
+  // - Only 10% of people have high natural manager talent (Gallup)
+  // - DDI: 60% of managers experience burnout
+  //
+  // Conservative model:
+  // - 70% of leaders are sub-optimally effective without targeted development
+  // - For each ineffective leader's team:
+  //   * 18% productivity drag on team payroll
+  //   * 6% additional preventable turnover (half of normal 12% attributed to manager)
+  //   * Each preventable leaver costs 100% of their salary (mid of 50-200% range)
+  // - Team member salary estimated at 50% of leader salary (conservative)
+
+  const leadersInput = document.getElementById('leaders');
+  const salaryInput = document.getElementById('salary');
+  const teamInput = document.getElementById('team');
+
+  const leadersVal = document.getElementById('leaders-val');
+  const salaryVal = document.getElementById('salary-val');
+  const teamVal = document.getElementById('team-val');
+
+  const wasteNum = document.getElementById('waste-num');
+  const productivityNum = document.getElementById('productivity-num');
+  const turnoverNum = document.getElementById('turnover-num');
+  const payrollNum = document.getElementById('payroll-num');
+  const ratioNum = document.getElementById('ratio-num');
+  const recoverNum = document.getElementById('recover-num');
+
+  function fmtMoney(n) {
+    if (n >= 1_000_000) {
+      const m = n / 1_000_000;
+      return '$' + (m >= 10 ? m.toFixed(1) : m.toFixed(2)) + 'M';
+    }
+    if (n >= 1_000) return '$' + Math.round(n / 1_000) + 'K';
+    return '$' + Math.round(n);
+  }
+
+  function fmtMoneyExact(n) {
+    return '$' + Math.round(n).toLocaleString();
+  }
+
+  function animateNumber(el, target, formatFn) {
+    if (!el) return;
+    const current = parseFloat(el.dataset.current) || 0;
+    const start = performance.now();
+    const duration = 600;
+    function step(t) {
+      const p = Math.min((t - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const value = current + (target - current) * eased;
+      el.textContent = formatFn(value);
+      if (p < 1) requestAnimationFrame(step);
+      else el.dataset.current = target;
+    }
+    requestAnimationFrame(step);
+  }
+
+  function flash(el) {
+    if (!el) return;
+    el.classList.add('flash');
+    setTimeout(() => el.classList.remove('flash'), 200);
+  }
+
+  function calculate() {
+    const L = parseInt(leadersInput.value);
+    const S = parseInt(salaryInput.value);
+    const T = parseInt(teamInput.value);
+
+    // Display input values
+    leadersVal.textContent = L;
+    salaryVal.textContent = '$' + S.toLocaleString();
+    teamVal.textContent = T;
+    flash(leadersVal); flash(salaryVal); flash(teamVal);
+
+    // Avg team member salary = 50% of leader salary (conservative)
+    const avgMember = S * 0.5;
+
+    // 70% of leaders are sub-optimally effective without development (Gallup)
+    const ineffective = L * 0.7;
+
+    // Productivity drag: 18% of team payroll for ineffective teams
+    const productivity = ineffective * T * avgMember * 0.18;
+
+    // Turnover: 6% preventable annual turnover from bad managers
+    // Cost per leaver: 100% of their annual salary (mid of 50-200% range)
+    const turnover = ineffective * T * 0.06 * avgMember * 1.0;
+
+    // Total annual waste
+    const totalWaste = productivity + turnover;
+
+    // Context: total leader payroll
+    const totalPayroll = L * S;
+
+    // Recoverable savings at 30% reclaim
+    const recoverable = totalWaste * 0.30;
+
+    // Waste-to-payroll ratio
+    const ratio = totalPayroll > 0 ? (totalWaste / totalPayroll * 100) : 0;
+
+    // Animate the output numbers
+    animateNumber(wasteNum, totalWaste, fmtMoney);
+    animateNumber(productivityNum, productivity, fmtMoneyExact);
+    animateNumber(turnoverNum, turnover, fmtMoneyExact);
+    animateNumber(payrollNum, totalPayroll, fmtMoneyExact);
+    animateNumber(recoverNum, recoverable, fmtMoney);
+
+    // Ratio (separate format)
+    const startRatio = parseFloat(ratioNum.dataset.current) || 0;
+    const start = performance.now();
+    const dur = 600;
+    function ratioStep(t) {
+      const p = Math.min((t - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const v = startRatio + (ratio - startRatio) * eased;
+      ratioNum.textContent = v.toFixed(1) + '%';
+      if (p < 1) requestAnimationFrame(ratioStep);
+      else ratioNum.dataset.current = ratio;
+    }
+    requestAnimationFrame(ratioStep);
+  }
+
+  [leadersInput, salaryInput, teamInput].forEach(el => {
+    el.addEventListener('input', calculate);
+  });
+
+  // Initial calculation
+  calculate();
+</script>
+
+</body>
+</html>
